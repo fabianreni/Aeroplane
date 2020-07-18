@@ -6,7 +6,7 @@
         <div class='row'>
         <div class="button-row">
             <button mat-raised-button class='btn btn-primary'
-                    (click)='openModal()'> add
+                    (click)='openModal()'> Add
             </button>
         </div>
         <div class='table-responsive'>
@@ -29,10 +29,8 @@
                         <td>{{ aeroplane.aeroplaneLength}}</td>
                         <!-- | currency :'M':'symbol':'1.2-2' -->
                         <td>
-                            <!-- <button routerLinkActive='active' [routerLink]="['/aeroplanes-edit']" class='btn btn-primary'>Edit</button> -->
-                            <!-- <pm-delet (deletClicked)='onDeletClicked($event)'></pm-delet> -->
-                            <button class='btn btn-primary'>Edit</button>
-                            <button class='btn btn-primary'>Delete</button>
+                            <button class='btn btn-primary' (click)="editAeeroplane(aeroplane)">Edit</button>
+                            <button class='btn btn-primary' (click)="deleteAeroplane(aeroplane)">Delete</button>
                         </td>
                     </tr>
                 </tbody>

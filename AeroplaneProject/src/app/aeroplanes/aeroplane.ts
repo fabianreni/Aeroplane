@@ -12,5 +12,8 @@ export class Aeroplane implements IAeroplane{
         public aeroplaneLength:number){
 
     }
+    getAeroplaneID():number{
+        return this.aeroplaneID;
+    }
 
 }

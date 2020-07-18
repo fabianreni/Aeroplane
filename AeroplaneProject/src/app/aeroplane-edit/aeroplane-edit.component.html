@@ -1,0 +1,21 @@
+<form  [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <h3>Aeroplane Edit</h3>
+    <div class="hidden">
+        <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
+      </div>
+  <label>
+    Aeroplane Name:
+    <input type="text" formControlName="aeroplaneName" placeholder="aeroplaneName" name="aeroplaneName" class="form-control" id="aeroplaneName" >
+  </label> <br>
+    <label>
+    Passager Number:
+    <input type="number" formControlName="passagerNumber" placeholder="aeroplaneName" name="passagerNumber" class="form-control" id="passagerNumber" >
+  </label> <br>
+    <label>
+    Aeroplane Length:
+
+    <input type="number" formControlName="aeroplanLength"  placeholder="aeroplanLength" name="aeroplanLength" class="form-control" id="aeroplanLength" >
+  </label>
+  <br>
+  <button class="btn btn-success">Update</button>
+  </form>
