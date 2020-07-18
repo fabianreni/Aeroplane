@@ -1,0 +1,17 @@
+<form (ngSubmit)="callingFunction()">
+    <h3>Aeroplane Details</h3>
+  <label>
+    Aeroplane Name:
+    <input type="text" formControlName="aeroplaneName">
+  </label> <br>
+    <label>
+    Passager Number:
+    <input type="text" formControlName="passagerNumber">
+  </label> <br>
+    <label>
+    Aeroplane Length:
+    <input type="text" formControlName="aeroplanLengt">
+  </label>
+  <br>
+  <button mat-raised-button  type="submit">Submit</button>
+</form>

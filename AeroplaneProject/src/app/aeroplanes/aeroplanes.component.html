@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-header">
+        <h1>{{ pageTitle}}</h1>
+    </div>
+    <div class='card-body'>
+        <div class='row'>
+        <div class="button-row">
+            <button mat-raised-button class='btn btn-primary'
+                    (click)='openModal()'> add
+            </button>
+        </div>
+        <div class='table-responsive'>
+            <table class='table'
+                   *ngIf='aeroplanes && aeroplanes.length'>
+                <thead>
+                    <tr>
+                        <th>Aeroplane Name</th>
+                        <th>Passagers Number</th>
+                        <th>Aeroplna Length</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let aeroplane of aeroplanes'>
+                        <td>
+                            {{ aeroplane.aeroplaneName |lowercase}}
+                        </td>
+                        <td>{{ aeroplane.passagersNumber }}</td>
+                        <td>{{ aeroplane.aeroplaneLength}}</td>
+                        <!-- | currency :'M':'symbol':'1.2-2' -->
+                        <td>
+                            <!-- <button routerLinkActive='active' [routerLink]="['/aeroplanes-edit']" class='btn btn-primary'>Edit</button> -->
+                            <!-- <pm-delet (deletClicked)='onDeletClicked($event)'></pm-delet> -->
+                            <button class='btn btn-primary'>Edit</button>
+                            <button class='btn btn-primary'>Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

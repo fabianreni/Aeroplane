@@ -1,0 +1,14 @@
+[
+  {
+    "aeroplaneID":1,
+    "aeroplaneName":"aeroplane1",
+    "passagersNumber":100,
+    "aeroplaneLength":100
+},
+{
+    "aeroplaneID":2,
+    "aeroplaneName":"aeroplane2",
+    "passagersNumber":200,
+    "aeroplaneLength":200
+}
+]
