@@ -4,7 +4,7 @@ import { AeroplaneService } from './aeroplane.service';
 import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 import { Router } from '@angular/router';
-import { ApiService } from '../api.service';
+
 @Component({
   // selector: 'app-aeroplanes',
   templateUrl: './aeroplanes.component.html',
@@ -18,7 +18,7 @@ export class AeroplanesComponent implements OnInit {
 
   pageTitle: string = 'Aeroplane List';
 
-  constructor(private api: ApiService,public matDialog: MatDialog, private router: Router, private aeroplaneServices: AeroplaneService) {
+  constructor(public matDialog: MatDialog, private router: Router, private aeroplaneServices: AeroplaneService) {
     // this.listFilter='aeroplane1';
   }
 
@@ -38,11 +38,12 @@ export class AeroplanesComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.id = "modal-component";
     dialogConfig.height = "350px";
+    dialogConfig.width = "450px";
     const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
   }
 
   deleteAeroplane(aeroplane: IAeroplane) {
-    this.api.deleteAeroplane(aeroplane.aeroplaneID).subscribe
+    this.aeroplaneServices.deleteAeroplane(aeroplane.aeroplaneID).subscribe
     (res=>{
       this.router.navigate(['aeroplane']);
     }, (err)=>{

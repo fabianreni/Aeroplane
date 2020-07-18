@@ -1,7 +1,7 @@
-<form  [formGroup]="editForm" (ngSubmit)="onSubmit()">
+<form  [formGroup]="addForm"  novalidate class="form">
     <h3>Aeroplane Edit</h3>
     <div class="hidden">
-        <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
+        <input type="text" placeholder="id" name="id" class="form-control" id="id">
       </div>
   <label>
     Aeroplane Name:
@@ -17,5 +17,5 @@
     <input type="number" formControlName="aeroplanLength"  placeholder="aeroplanLength" name="aeroplanLength" class="form-control" id="aeroplanLength" >
   </label>
   <br>
-  <button class="btn btn-success">Update</button>
+  <button class="btn btn-success" (click)="onSubmit()">Update</button>
   </form>

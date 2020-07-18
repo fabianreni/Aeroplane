@@ -47,10 +47,17 @@ export class AeroplaneService {
       catchError(this.handleError<Aeroplane>('deleteAeroplane'))
     );
   }
-  updateAeroplane(aeroplane: IAeroplane): Observable<IAeroplane[]>{
+  updateAeroplane(aeroplane: Aeroplane): Observable<IAeroplane[]>{
       return this.http.put<IAeroplane[]>(`${this.aeroplaneUrl}`,aeroplane);
   }
 
+  // updateAeroplane(id: any, aeroplan: Aeroplane): Observable<any> {
+  //   const url = `${apiUrl}/${id}`;
+  //   return this.http.put(url, aeroplan, httpOptions).pipe(
+  //     tap(_ => console.log(`updated aeroplan id=${id}`)),
+  //     catchError(this.handleError<any>('updateAeroplane'))
+  //   );
+  // }
   myDeleteAeroplane(id:number): Observable<any>{
     return this.http.delete(`${this.aeroplaneUrl}/${id}`,{responseType: 'text'});
 }
