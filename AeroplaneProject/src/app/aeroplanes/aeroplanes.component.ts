@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IAeroplane, Aeroplane } from './aeroplane';
 import { AeroplaneService } from './aeroplane.service';
 import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 import { Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   // selector: 'app-aeroplanes',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 
 })
 export class AeroplanesComponent implements OnInit {
-
+  @ViewChild(MatPaginator) paginator :MatPaginator;
   errorMessage: string;
   // aeroplanesList:IAeroplane[]=[
   //   {
@@ -40,9 +41,11 @@ export class AeroplanesComponent implements OnInit {
   pageTitle: string = 'Aeroplane List';
 
   constructor(public matDialog: MatDialog, private router: Router, private aeroplaneServices: AeroplaneService) {
-    // this.listFilter='aeroplane1';
+    // this.listFilter='aeroplane1';]
+    
   }
 
+  
   aeroplanes: IAeroplane[];
 
   ngOnInit(): void {
@@ -62,9 +65,7 @@ export class AeroplanesComponent implements OnInit {
     dialogConfig.width = "550px";
     const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
   }
-  // addAeroplane(aeroplane:Aeroplane){
-  //   this.aeroplanesList.push();
-  // }
+
   deleteAeroplane(aeroplane: IAeroplane) {
     this.aeroplaneServices.deleteAeroplanes(aeroplane.aeroplaneID).subscribe
     (res=>{
@@ -72,10 +73,7 @@ export class AeroplanesComponent implements OnInit {
     }, (err)=>{
       console.log(err);
     });
-    // this.aeroplaneServices.myDeleteAeroplane(aeroplane.aeroplaneID).
-    //   subscribe(data => {
-    //     this.aeroplanes = this.aeroplanes.filter(aero => aero != aeroplane);
-    //   });
+    
   }
 
   editAeeroplane(aeroplane: IAeroplane): void {

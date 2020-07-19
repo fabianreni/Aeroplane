@@ -22,11 +22,7 @@ export class AeroplaneService {
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-  
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-  
-      // Let the app keep running by returning an empty result.
+      console.error(error);
       return of(result as T);
     };
   }
@@ -34,10 +30,6 @@ export class AeroplaneService {
     return this.http.get<IAeroplane[]>(`${this.aeroplaneUrl}/${id}`);
   }
 
-  // updateAeroplaneSimple(aeroplane:IAeroplane): Observable<IAeroplane[]>{
-  //   return this.http.put<IAeroplane>(`${this.aeroplaneUrl}/${id}`);
-
-  // }
   deleteAeroplanes(id: any): Observable<Aeroplane> {
     const url = `${apiUrl}/${id}`;
     // console.log(url);
@@ -50,13 +42,6 @@ export class AeroplaneService {
       return this.http.put<IAeroplane[]>(`${this.aeroplaneUrl}`,aeroplane);
   }
 
-  // updateAeroplane(id: any, aeroplan: Aeroplane): Observable<any> {
-  //   const url = `${apiUrl}/${id}`;
-  //   return this.http.put(url, aeroplan, httpOptions).pipe(
-  //     tap(_ => console.log(`updated aeroplan id=${id}`)),
-  //     catchError(this.handleError<any>('updateAeroplane'))
-  //   );
-  // }
   myDeleteAeroplane(id:number): Observable<any>{
     return this.http.delete(`${this.aeroplaneUrl}/${id}`,{responseType: 'text'});
 }
