@@ -3,17 +3,24 @@ export interface IAeroplane{
     aeroplaneName:string;
     passagersNumber:number;
     aeroplaneLength:number;
+    
 }
 export class Aeroplane implements IAeroplane{
 
     constructor(public aeroplaneID:number,
         public aeroplaneName:string,
         public passagersNumber:number,
-        public aeroplaneLength:number){
+        public aeroplaneLength:number,
+        public aeroplaneList: IAeroplane[] ){
 
     }
+    // aeroplaneList: IAeroplane[];
     getAeroplaneID():number{
         return this.aeroplaneID;
     }
+    deletElemet(aeroplaneID):void{
+        
+    }
+   
 
 }

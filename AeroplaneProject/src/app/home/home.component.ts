@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  pageTitle: string="Welcome to my first component!";
+  pageTitle: string="Welcome to my first Angular project!";
   constructor() { }
 
   ngOnInit(): void {

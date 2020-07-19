@@ -3,8 +3,10 @@ import { FormControl } from '@angular/forms'
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AeroplaneService } from '../aeroplanes/aeroplane.service';
+
 import { ModalComponent } from '../modal/modal.component';
 import { MatDialogRef } from '@angular/material/dialog';
+import { IAeroplane } from '../aeroplanes/aeroplane';
 
 
 @Component({
@@ -15,8 +17,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 export class AeroplaneformComponent implements OnInit {
 
-
-  constructor( public dialogRef: MatDialogRef<ModalComponent>,private formBuilder: FormBuilder, private router :Router) {
+  aeroplanes:IAeroplane[];
+    constructor( public dialogRef: MatDialogRef<ModalComponent>,private formBuilder: FormBuilder, private aeroplaneServices: AeroplaneService,private router :Router) {
 
   }
 
@@ -33,6 +35,9 @@ export class AeroplaneformComponent implements OnInit {
 
   onSubmit() {
     console.log(this.addForm.value);
+    this.aeroplaneServices.creatAeroplane(this.addForm.value);
+    // console.log(this.aeroplanes);
+    // addAeroplane((this.addForm.value);
     this.dialogRef.close();
     this.router.navigate(['aeroplanes']);
   }

@@ -8,7 +8,7 @@ import {catchError,tap} from 'rxjs/operators';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "/api/v1/aeroplanes";
+const apiUrl = "./assets/aeroplanesList.json";
  
 @Injectable({
   providedIn: 'root'
@@ -33,15 +33,14 @@ export class AeroplaneService {
   getAeroplane(id: number): Observable<any>{
     return this.http.get<IAeroplane[]>(`${this.aeroplaneUrl}/${id}`);
   }
-  creatAeroplane(aeroplane: IAeroplane): Observable<IAeroplane[]>{
-      return this.http.post<IAeroplane[]>(`${this.aeroplaneUrl}`,aeroplane);
-  }
+
   // updateAeroplaneSimple(aeroplane:IAeroplane): Observable<IAeroplane[]>{
   //   return this.http.put<IAeroplane>(`${this.aeroplaneUrl}/${id}`);
 
   // }
-  deleteAeroplane(id: any): Observable<Aeroplane> {
+  deleteAeroplanes(id: any): Observable<Aeroplane> {
     const url = `${apiUrl}/${id}`;
+    // console.log(url);
     return this.http.delete<Aeroplane>(url, httpOptions).pipe(
       tap(_ => console.log(`deleted aeroplane id=${id}`)),
       catchError(this.handleError<Aeroplane>('deleteAeroplane'))
@@ -66,5 +65,8 @@ export class AeroplaneService {
           tap(data=> console.log('All:'+JSON.stringify(data))),catchError(this.handleError)
       );
   }
-  
+  creatAeroplane(aeroplane: IAeroplane): Observable<IAeroplane[]>{
+    return this.http.put<IAeroplane[]>(`${this.aeroplaneUrl}`,JSON.stringify(aeroplane));
+    // return this.http.post<IAeroplane[]>(`${this.aeroplaneUrl}`,aeroplane);
+}
 }

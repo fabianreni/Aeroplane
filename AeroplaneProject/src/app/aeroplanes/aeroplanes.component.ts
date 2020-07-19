@@ -15,6 +15,27 @@ import { Router } from '@angular/router';
 export class AeroplanesComponent implements OnInit {
 
   errorMessage: string;
+  // aeroplanesList:IAeroplane[]=[
+  //   {
+  //     "aeroplaneID":1,
+  //     "aeroplaneName":"aeroplane1",
+  //     "passagersNumber":100,
+  //     "aeroplaneLength":100
+  // },
+  // {
+  //     "aeroplaneID":2,
+  //     "aeroplaneName":"aeroplane2",
+  //     "passagersNumber":200,
+  //     "aeroplaneLength":200
+  // },
+  // {
+  //   "aeroplaneID":3,
+  //   "aeroplaneName":"aeroplane3",
+  //   "passagersNumber":200,
+  //   "aeroplaneLength":200
+  
+  // }
+  // ];
 
   pageTitle: string = 'Aeroplane List';
 
@@ -38,12 +59,14 @@ export class AeroplanesComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.id = "modal-component";
     dialogConfig.height = "350px";
-    dialogConfig.width = "450px";
+    dialogConfig.width = "550px";
     const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
   }
-
+  // addAeroplane(aeroplane:Aeroplane){
+  //   this.aeroplanesList.push();
+  // }
   deleteAeroplane(aeroplane: IAeroplane) {
-    this.aeroplaneServices.deleteAeroplane(aeroplane.aeroplaneID).subscribe
+    this.aeroplaneServices.deleteAeroplanes(aeroplane.aeroplaneID).subscribe
     (res=>{
       this.router.navigate(['aeroplane']);
     }, (err)=>{
