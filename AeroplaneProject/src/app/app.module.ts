@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { from } from 'rxjs';
 import { AeroplaneModule } from './aeroplanes/aeroplane.module';
 import { ReactiveFormsModule } from '@angular/forms';
+
 // import {NgxPaginationModule} from 'ngx-pagination'; 
 
 @NgModule({

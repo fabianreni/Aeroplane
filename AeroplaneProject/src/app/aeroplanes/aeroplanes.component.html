@@ -5,11 +5,10 @@
     <div class='card-body'>
         <div class='row'>
             <div class="button-row">
-                <button mat-raised-button class='btn btn-primary' (click)='openModal()'> Add
-                </button>
+                <button mat-raised-button class='btn btn-primary' (click)="add()">Add </button>
             </div>
             <div class='table-responsive'>
-                <table class='table' *ngIf='aeroplanes && aeroplanes.length'>
+                <table class='table' *ngIf='aeroplanesList && aeroplanesList.length'>
                     <thead>
                         <tr>
                             <th>Aeroplane Name</th>
@@ -19,7 +18,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor='let aeroplane of aeroplanes'>
+                        <tr *ngFor='let aeroplane of aeroplanesList'>
                             <td>
                                 {{ aeroplane.aeroplaneName |lowercase}}
                             </td>

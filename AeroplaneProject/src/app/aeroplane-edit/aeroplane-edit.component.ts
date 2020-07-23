@@ -30,40 +30,9 @@ export class AeroplaneEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.addForm.value);
+    // console.log(this.addForm.value);
+    this.aeroplaneService.edit(this.addForm.value);
     this.router.navigate(['aeroplanes']);
 
   }
-  // ngOnInit(): void {
-  //   let aerplaneId = window.localStorage.getItem("editAeroplaneId");
-  //   if(!aerplaneId) {
-  //     alert("Invalid action.")
-  //     this.router.navigate(['aeroplane']);
-  //     return;
-  //   }
-  //   this.editForm= new FormGroup({
-  //     aeroplanName: new FormControl('', Validators.required),
-  //     passagerNumber: new FormControl('',Validators.required),
-  //     aeroplanLength: new FormControl('',Validators.required)
-  //     });
-    
-  //   this.aeroplaneService.getAeroplane(+aerplaneId)
-  //     .subscribe( data => {
-  //       this.editForm.setValue(data.result);
-  //     });
-  // }
-  // onSubmit() {
-  //   this.aeroplaneService.updateAeroplane(this.editForm.value)
-  //     .subscribe(
-  //       data => {
-          
-  //           alert("User updated successfully.");
-  //           this.router.navigate(['aeroplane']);
-         
-  //       },
-  //       error => {
-  //         alert(error +"!!!!1!");
-  //       });
-  // }
-
 }
